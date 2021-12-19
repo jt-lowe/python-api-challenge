@@ -16,3 +16,15 @@ Next task was splitting the data into the Northern and Southern Hemispheres, whi
 We created scatterplots for the same comparisons as above, but split by hemisphere on these new DataFrames, then ran the linear regression analysis on the plots. We then analysed the regression models and further analysed the scatterplots.
 
 ### VacationPy Tasks
+First step was to import the weather data from the WeatherPy output, we use this data to create a heatmap in the GMaps API, using the Latitude and Longtitude for locations and the Humidity to determine the weight of the heatmap.
+
+Using the following conditions;
+- Max Temp between 70F (21.1111C) and 80F (26.6667C) degrees
+- Wind Speed is less than 10 mph
+- Zero Cloudiness
+
+we then determined the "Ideal Locations" to visit, these ideal locations were placed into a new DataFrame by comparing the original DataFrame to the above conditions.
+
+Using the GMaps Places API, we performed a keyword search at the corresponding latitude and longtitude of each of our ideal locations, cycling through each row using the .itterows() function native to pandas, we pulled the name of the closest hotel to our ideal weather locations.
+
+We added these hotel names back into our DataFrame and renamed it hotel_df, then reordered and dropped some columns that were no longer needed. We then added the hotels into a marker code and plotted the markers over the top of our earlier heatmap.
